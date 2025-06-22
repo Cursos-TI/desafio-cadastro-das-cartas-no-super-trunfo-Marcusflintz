@@ -1,15 +1,9 @@
 #include <stdio.h>
 
 // Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
+// Cadastro de cartas de cidades com cálculo de densidade e PIB per capita
 
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    
     // Carta 1
     char estado1;
     char codigo1[4];
@@ -18,6 +12,8 @@ int main() {
     float area1;
     float PIB1;
     int pturisticos1;
+    float dpopulacional1;
+    float PIBpcapta1;
 
     // Carta 2
     char estado2;
@@ -27,11 +23,9 @@ int main() {
     float area2;
     float PIB2;
     int pturisticos2;
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
+    float dpopulacional2;
+    float PIBpcapta2;
+
     // Entrada de dados - Carta 1
     printf("Digite o Estado (letra): ");
     scanf(" %c", &estado1);
@@ -53,6 +47,11 @@ int main() {
 
     printf("Digite o número de Pontos Turísticos: ");
     scanf("%d", &pturisticos1);
+
+    // Cálculo da densidade e PIB per capita - Carta 1
+    dpopulacional1 = populacao1 / area1;
+    PIBpcapta1 = (PIB1*1000000000)  / populacao1;
+
 
     printf("\n");
 
@@ -77,21 +76,26 @@ int main() {
 
     printf("Digite o número de Pontos Turísticos: ");
     scanf("%d", &pturisticos2);
+    // Cálculo da densidade e PIB per capita - Carta 2
+    dpopulacional2 = (populacao2 / area2);
+    PIBpcapta2 = (PIB2*1000000000)  / populacao2;
 
     printf("\n");
 
-    
     // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
+
+    printf("===== CARTA 1 =====\n");
     printf("Estado: %c\n", estado1);
     printf("Código: %s\n", codigo1);
     printf("Cidade: %s\n", cidade1);
     printf("População: %d\n", populacao1);
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões\n", PIB1);
-    printf("Pontos Turísticos: %d\n\n", pturisticos1);
+    printf("Pontos Turísticos: %d\n", pturisticos1);
+    printf("Densidade Populacional: %.2f hab/km²\n", dpopulacional1);
+    printf("PIB per Capita: R$ %.2f\n\n", PIBpcapta1);
 
+    printf("===== CARTA 2 =====\n");
     printf("Estado: %c\n", estado2);
     printf("Código: %s\n", codigo2);
     printf("Cidade: %s\n", cidade2);
@@ -99,9 +103,8 @@ int main() {
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões\n", PIB2);
     printf("Pontos Turísticos: %d\n", pturisticos2);
+    printf("Densidade Populacional: %.2f hab/km²\n", dpopulacional2);
+    printf("PIB per Capita: R$ %.2f\n", PIBpcapta2);
 
-
-    
     return 0;
-
 }
